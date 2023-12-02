@@ -29,7 +29,8 @@ function Home() {
     const handleWishlist=(product)=>{
         stWishlist(prevState => [...prevState, product])
     }
-    const handleSearch=()=>{
+    const handleSearch=(value)=>{
+        setSearch(value)
         if(search){
             setProducts(searchProducts.filter(item=>item.title.toLowerCase().includes(search.toLowerCase())))
 
@@ -44,7 +45,7 @@ function Home() {
 
     <>
         <div className='d-flex justify-content-center align-items-center w-100 container  p-5 mt-4'>
-            <input className='form-control w-50' onChange={(e)=>setSearch(e.target.value)} type="text" placeholder='Enter Product name'  /> <button onClick={(handleSearch)} className='btn btn-dark'>Search</button>
+            <input className='form-control w-50' onChange={(e)=>handleSearch(e.target.value)} type="text" placeholder='Enter Product name'  /> 
         </div>
         <div className='d-flex justify-content-evenly flex-wrap'>
     
